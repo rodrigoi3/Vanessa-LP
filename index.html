@@ -7,7 +7,9 @@
   <meta name="keywords" content="podologia, tratamento para pés, unha encravada, pés diabéticos, podóloga, Vanessa Yano" />
   <meta name="author" content="Vanessa Yano" />
   <title>Vanessa Yano | Podologia</title>
-  <link rel="icon" href="./75096af5-ee1f-496a-81ef-0717828435b9.png" type="image/png">
+  <meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="src/imgs/favicon-vanessa-yano.ico" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
@@ -31,13 +33,21 @@
       border-color: #25d366;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+
+    .logo-font {
+      font-family: 'Playfair Display', serif;
+    }
   </style>
 </head>
 <body class="bg-deep-green text-white">
 
   <!-- Navbar -->
   <nav class="flex items-center justify-between p-4 bg-deep-green shadow-md">
-    <img src="./75096af5-ee1f-496a-81ef-0717828435b9.png" alt="Vanessa Yano Logo" class="w-14 h-14">
+    <a href="/" class="inline-block text-center text-[#D5B26A]">
+      <h1 class="logo-font text-2xl tracking-wide">VANESSA YANO</h1>
+      <p class="logo-font text-base tracking-[0.1em] mt-1">PODOLOGIA</p>
+    </a>
+
     <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20mais%20informações%20sobre%20seus%20serviços%20de%20podologia." 
        class="whatsapp-btn text-white px-4 py-2 font-semibold rounded-lg shadow-lg">
       💬 Falar no WhatsApp
@@ -56,50 +66,82 @@
 
   <!-- Benefícios com Cards -->
   <section class="bg-white text-deep-green py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-12">Por que escolher a Dra. Vanessa Yano?</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
-          <img src="https://via.placeholder.com/300x200" alt="Atendimento" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Atendimento Humanizado</h3>
-          <p class="mb-4">Empatia, escuta e acolhimento desde a primeira visita.</p>
-          <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20a%20primeira%20consulta." 
-             class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Saber Mais
-          </a>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
-          <img src="https://via.placeholder.com/300x200" alt="Tratamento Individualizado" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Tratamento Personalizado</h3>
-          <p class="mb-4">Avaliação detalhada para um plano de cuidados eficaz.</p>
-          <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20entender%20como%20funciona%20sua%20avaliação%20e%20o%20tratamento." 
-             class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Consultar
-          </a>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
-          <img src="https://via.placeholder.com/300x200" alt="Tecnologia" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Tecnologia Avançada</h3>
-          <p class="mb-4">Equipamentos modernos para diagnóstico e tratamento seguro.</p>
-          <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Quais%20são%20os%20equipamentos%20e%20tecnologias%20que%20você%20utiliza%20nos%20tratamentos?" 
-             class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Ver Tecnologias
-          </a>
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Por que escolher a Dra. Vanessa Yano?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+            <img src="src/imgs/atendimento-humanizado.webp" alt="Atendimento" class="rounded mb-4">
+            <h3 class="text-xl font-semibold mb-2">Atendimento Humanizado</h3>
+            <p class="mb-4">Empatia, escuta e acolhimento desde a primeira visita.</p>
+            <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20a%20primeira%20consulta." 
+              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              Saber Mais
+            </a>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+            <img src="src/imgs/tratamento-personalizado.webp" alt="Tratamento Individualizado" class="rounded mb-4">
+            <h3 class="text-xl font-semibold mb-2">Tratamento Personalizado</h3>
+            <p class="mb-4">Avaliação detalhada para um plano de cuidados eficaz.</p>
+            <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20entender%20como%20funciona%20sua%20avaliação%20e%20o%20tratamento." 
+              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              Consultar
+            </a>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+            <img src="src/imgs/tecnologia-avançada.webp" alt="Tecnologia" class="rounded mb-4">
+            <h3 class="text-xl font-semibold mb-2">Tecnologia Avançada</h3>
+            <p class="mb-4">Equipamentos modernos para diagnóstico e tratamento seguro.</p>
+            <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Quais%20são%20os%20equipamentos%20e%20tecnologias%20que%20você%20utiliza%20nos%20tratamentos?" 
+              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              Ver Tecnologias
+            </a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Seção de Emergência -->
+  <section class="bg-red-100 border-l-4 border-red-500 text-red-700 py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-4">🚨 Caso de Emergência nos Pés?</h3>
+      <p class="mb-6">Feridas abertas, sangramento, dor intensa ou sinais de infecção? Entre em contato imediatamente!</p>
+      <a href="https://wa.me/5514998771474?text=URGENTE%20-%20Dra.%20Vanessa!%20Estou%20com%20uma%20emergência%20nos%20pés%20e%20preciso%20de%20atendimento%20imediato!" 
+         class="bg-red-600 text-white px-8 py-4 font-bold rounded-lg shadow-lg hover:bg-red-700 transition">
+        🚨 EMERGÊNCIA - Contato Imediato
+      </a>
     </div>
   </section>
 
-  <!-- Sobre mim com imagem -->
-  <section class="py-20 px-4 bg-deep-green text-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <img src="https://via.placeholder.com/500x500" alt="Dra Vanessa Yano" class="rounded-lg shadow-lg">
-      <div>
-        <h2 class="text-3xl font-bold gold mb-4">Sobre a Dra. Vanessa Yano</h2>
-        <p class="text-lg leading-relaxed mb-6">Sou podóloga com vasta experiência clínica, oferecendo um atendimento técnico e humanizado. Tenho especialização em podologia geriátrica, preventiva e cuidados com pacientes diabéticos e oncológicos. Minha missão é melhorar sua qualidade de vida através do cuidado com os pés.</p>
+    <!-- Sobre mim com imagem -->
+    <section class="py-20 px-4 bg-deep-green text-white">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <img src="src/imgs/vanessa-yano.webp" alt="Dra. Vanessa Yano" class="rounded-lg shadow-lg">
+        <div>
+          <h2 class="text-3xl font-bold gold mb-4">Sobre a Dra. Vanessa Yano</h2>
+          <p class="text-lg leading-relaxed mb-4">
+            “Os pés contam histórias… e eu aprendi a escutá-las.”
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            Minha trajetória cuidando de outras pessoas começou em 2016, na época trabalhava com terapia familiar e dependentes químicos. Nesse período desenvolvi um olhar humano e empático, que levo para cada atendimento como podóloga hoje.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            A paixão pelos cuidados com os pés surgiu quando comecei como manicure e pedicure. Logo percebi a necessidade de um atendimento mais profundo, acolhedor e especializado. Iniciei minha graduação como podologista na Unicesumar e desde então mergulhei de corpo e alma nessa missão.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            Participo de congressos, cursos e eventos em várias regiões do Brasil, e mesmo durante a pandemia, me mantive atualizada por meio de aulas online. Essa busca constante por conhecimento me conectou com grandes marcas e profissionais da área, me permitindo representar empresas que hoje são parceiras do meu consultório.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            Também sou fundadora de um grupo que hoje conta com mais de 500 podólogos e empresários, compartilhando experiências e evolução profissional. 
+            Por conta desse grupo hoje no meu consultório, utilizo apenas produtos e tecnologias de ponta, com protocolos personalizados para cada tipo de serviços.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            A biossegurança é um pilar essencial do meu trabalho. Mas o que mais me orgulho é de oferecer um olhar individual para cada paciente, buscando a causa do problema e desenvolvendo um plano de cuidado único e eficaz.
+            Porque cada pessoa é única e os seus pés sempre tem algo importante a dizer.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
 
   <!-- Lista de Tratamentos com Cards -->
     <section class="bg-white text-deep-green py-20 px-4">
@@ -218,39 +260,16 @@
     </div>
     </section>
 
-  <!-- CTA Intermediário com imagem -->
-  <section class="py-16 px-4 bg-gradient-to-r from-deep-green to-green-900 text-white text-center">
-    <h3 class="text-3xl font-semibold mb-4">Agende sua avaliação com quem entende de pés</h3>
-    <p class="mb-6 max-w-xl mx-auto">Entre em contato agora mesmo pelo WhatsApp e garanta seu horário com a Dra. Vanessa Yano. Atendimento de excelência e com muito carinho!</p>
-    <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Quero%20agendar%20uma%20avaliação%20completa%20dos%20meus%20pés.%20Quais%20são%20os%20horários%20disponíveis?" 
-       class="bg-white text-deep-green px-8 py-4 font-semibold rounded-lg shadow-lg hover:scale-105 transition">
-      📱 Chamar no WhatsApp
-    </a>
-  </section>
+  <!-- CTA Final -->
+ <section class="py-16 px-4 text-white text-center bg-gray-800">
+  <h3 class="text-3xl font-semibold mb-4">Agende sua avaliação com quem entende de pés</h3>
+  <p class="mb-6 max-w-xl mx-auto">Entre em contato agora mesmo pelo WhatsApp e garanta seu horário com a Dra. Vanessa Yano. Atendimento de excelência e com muito carinho!</p>
+  <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Quero%20agendar%20uma%20avaliação%20completa%20dos%20meus%20pés.%20Quais%20são%20os%20horários%20disponíveis?" 
+     class="bg-white text-deep-green px-8 py-4 font-semibold rounded-lg shadow-lg hover:scale-105 transition">
+    📱 Chamar no WhatsApp
+  </a>
+</section>
 
-  <!-- Seção de Emergência -->
-  <section class="bg-red-100 border-l-4 border-red-500 text-red-700 py-12 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-2xl font-bold mb-4">🚨 Caso de Emergência nos Pés?</h3>
-      <p class="mb-6">Feridas abertas, sangramento, dor intensa ou sinais de infecção? Entre em contato imediatamente!</p>
-      <a href="https://wa.me/5514998771474?text=URGENTE%20-%20Dra.%20Vanessa!%20Estou%20com%20uma%20emergência%20nos%20pés%20e%20preciso%20de%20atendimento%20imediato!" 
-         class="bg-red-600 text-white px-8 py-4 font-bold rounded-lg shadow-lg hover:bg-red-700 transition">
-        🚨 EMERGÊNCIA - Contato Imediato
-      </a>
-    </div>
-  </section>
-
-  <!-- CTA Final com destaque -->
-  <section class="bg-white text-deep-green py-20 px-4 text-center">
-    <h3 class="text-3xl font-bold mb-4">Saúde, beleza e bem-estar para os seus pés</h3>
-    <p class="mb-6 text-lg">A podologia vai muito além da estética ela é cuidado, prevenção e saúde. Cuide bem de quem te sustenta todos os dias!</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Quero%20agendar%20minha%20consulta%20de%20podologia!" 
-         class="whatsapp-btn text-white px-8 py-4 font-semibold rounded-lg shadow-lg">
-        📅 Agendar Agora
-      </a>
-    </div>
-  </section>
 
   <!-- Botão WhatsApp Flutuante -->
   <div class="fixed bottom-6 right-6 z-50">
@@ -261,19 +280,16 @@
   </div>
 
   <!-- Footer completo -->
-  <footer class="bg-deep-green text-white py-12 px-4 text-center">
-    <img src="./75096af5-ee1f-496a-81ef-0717828435b9.png" alt="Logo" class="mx-auto mb-4 w-14 h-14">
-    <p class="mb-5">Horário de Atendimento: Seg à Sex, 9h às 18h <br> 🚨 Atendimento de Urgências 24h 🚨</p>
+  <footer class="bg-black text-white py-12 px-4 text-center">
+    <a href="/" class="inline-block text-center text-[#D5B26A]">
+      <h1 class="logo-font text-2xl tracking-wide">VANESSA YANO</h1>
+      <p class="logo-font text-base tracking-[0.1em] mt-1">PODOLOGIA</p>
+    </a>
+    <p class="mt-3 mb-5">Horário de Atendimento: Seg à Sex, 9h às 18h <br> 🚨 Atendimento de Urgências 24h 🚨</p>
     <a href="https://wa.me/5514998771474" class="gold hover:text-white transition">
       WhatsApp: (14) 99877-1474
     </a>
-    <p class="mt-2">CNPJ: 00.000.000/0001-00 | CRM: 000000-SP</p>
-    <div class="flex justify-center gap-4 mt-6">
-      <a href="https://wa.me/5514998771474?text=Olá%20Dra.%20Vanessa!%20Gostaria%20de%20saber%20como%20chegar%20ao%20seu%20consultório." 
-         class="bg-gray-600 text-white px-4 py-2 font-semibold rounded hover:bg-gray-700 transition">
-        📍 Localização
-      </a>
-    </div>
+    <p class="mt-2">CNPJ: 21.228.199/0001-80 | CRM: 000000-SP</p>
     <p class="mt-6">&copy; 2025 Vanessa Yano - Todos os direitos reservados</p>
   </footer>
 
