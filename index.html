@@ -12,87 +12,214 @@
   <link rel="icon" href="src/imgs/favicon-vanessa-yano.ico" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .gold { color: #c0a062; }
-    .bg-deep-green { background-color: #1e2d28; }
-    .text-deep-green { color: #1e2d28; }
-    .whatsapp-btn {
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      transition: all 0.3s ease;
+    * {
+      scroll-behavior: smooth;
     }
-    .whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-    }
-    .treatment-card {
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    .treatment-card:hover {
-      transform: translateY(-5px);
-      border-color: #25d366;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background-color: #1e2d28;
+      color: white;
     }
 
     .logo-font {
       font-family: 'Playfair Display', serif;
     }
+
+    .gold {
+      color: #c0a062;
+    }
+
+    .bg-deep-green {
+      background-color: #1e2d28;
+    }
+
+    .text-deep-green {
+      color: #1e2d28;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25d366, #128c7e, #075e54);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .whatsapp-btn:hover::before {
+      left: 100%;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    .treatment-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(192, 160, 98, 0.1), rgba(16, 185, 129, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .treatment-card:hover::before {
+      opacity: 1;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #c0a062;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .card-3d {
+      transform-style: preserve-3d;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-3d:hover {
+      transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .section-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-blur {
+      backdrop-filter: blur(20px);
+      background: rgba(10, 31, 26, 0.9);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #0a1f1a 0%, #1e2d28 30%, #2d3748 70%, #4a5568 100%);
+    }
+
+    .stats-counter {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #c0a062;
+    }
   </style>
 </head>
-<body class="bg-deep-green text-white">
+<body>
 
   <!-- Navbar -->
-  <nav class="flex items-center justify-between p-4 bg-deep-green shadow-md">
+  <nav class="fixed w-full z-50 flex items-center justify-between p-4 nav-blur shadow-2xl transition-all duration-300">
     <a href="/" class="inline-block text-center text-[#D5B26A]">
       <h1 class="logo-font text-2xl tracking-wide">VANESSA YANO</h1>
       <p class="logo-font text-base tracking-[0.1em] mt-1">PODOLOGIA</p>
     </a>
 
     <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20mais%20informações%20sobre%20seus%20serviços%20de%20podologia." 
-       class="whatsapp-btn text-white px-4 py-2 font-semibold rounded-lg shadow-lg">
+       class="whatsapp-btn text-white px-4 py-2 md:px-6 md:py-3 font-semibold rounded-full shadow-lg text-sm md:text-base">
       💬 Falar no WhatsApp
     </a>
   </nav>
 
-  <!-- Hero -->
-  <section class="text-center py-20 px-4 bg-gradient-to-b from-deep-green to-gray-800">
-    <h1 class="text-5xl font-bold gold mb-6">Cuidando da sua saúde dos pés com excelência</h1>
-    <p class="text-xl max-w-2xl mx-auto mb-8">Tratamentos especializados com a Podóloga Vanessa Yano, referência em podologia clínica e preventiva. Agende sua consulta e sinta o cuidado profissional desde o primeiro contato.</p>
-    <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20agendar%20uma%20consulta.%20Qual%20seria%20a%20sua%20disponibilidade?" 
-       class="whatsapp-btn text-white px-8 py-4 font-semibold rounded-lg shadow-lg">
-      📅 Agendar Consulta pelo WhatsApp
-    </a>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center text-center px-4 hero-gradient overflow-hidden">
+    <!-- Elementos flutuantes de fundo -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-10 w-32 h-32 bg-[#c0a062] opacity-10 rounded-full floating-element"></div>
+      <div class="absolute bottom-20 right-10 w-24 h-24 bg-[#10b981] opacity-10 rounded-full floating-element" style="animation-delay: -2s;"></div>
+      <div class="absolute top-1/2 left-20 w-16 h-16 bg-[#1e2d28] opacity-20 rounded-full floating-element" style="animation-delay: -4s;"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="section-fade visible">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#c0a062] mb-6 mt-10">Cuidando da sua saúde dos pés com excelência</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200 leading-relaxed">
+          Tratamentos especializados com a Podologista <strong class="text-[#c0a062]">Vanessa Yano</strong>, referência em podologia clínica e preventiva. Agende sua consulta e sinta o cuidado profissional desde o primeiro contato.
+        </p>        
+        <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20agendar%20uma%20consulta.%20Qual%20seria%20a%20sua%20disponibilidade?" 
+             class="whatsapp-btn text-white px-8 py-4 md:px-10 md:py-5 font-bold rounded-full shadow-2xl text-lg md:text-xl">
+            📅 Agendar Consulta
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Benefícios com Cards -->
   <section class="bg-white text-deep-green py-20 px-4">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Por que escolher a Vanessa Yano?</h2>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">Por que Escolher a <span class="text-[#c0a062]">Vanessa Yano</span>?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-20">Excelência, inovação e cuidado humanizado em cada atendimento</p>
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <div class="treatment-card card-3d bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-xl">
             <img src="src/imgs/atendimento-humanizado.webp" alt="Atendimento" class="rounded mb-4">
             <h3 class="text-xl font-semibold mb-2">Atendimento Humanizado</h3>
             <p class="mb-4">Empatia, escuta e acolhimento desde a primeira visita.</p>
             <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20a%20primeira%20consulta." 
-              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
               Saber Mais
             </a>
           </div>
-          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <div class="treatment-card card-3d bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-xl">
             <img src="src/imgs/tratamento-personalizado.webp" alt="Tratamento Individualizado" class="rounded mb-4">
             <h3 class="text-xl font-semibold mb-2">Tratamento Personalizado</h3>
             <p class="mb-4">Avaliação detalhada para um plano de cuidados eficaz.</p>
             <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20entender%20como%20funciona%20sua%20avaliação%20e%20o%20tratamento." 
-              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
               Consultar
             </a>
           </div>
-          <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <div class="treatment-card card-3d bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-xl">
             <img src="src/imgs/tecnologia-avançada.webp" alt="Tecnologia" class="rounded mb-4">
             <h3 class="text-xl font-semibold mb-2">Tecnologia Avançada</h3>
             <p class="mb-4">Equipamentos modernos para diagnóstico e tratamento seguro.</p>
             <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Quais%20são%20os%20equipamentos%20e%20tecnologias%20que%20você%20utiliza%20nos%20tratamentos?" 
-              class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+              class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
               Ver Tecnologias
             </a>
           </div>
@@ -101,13 +228,16 @@
     </section>
 
     <!-- Seção de Emergência -->
-  <section class="bg-red-100 border-l-4 border-red-500 text-red-700 py-12 px-4">
+  <section class="bg-red-800 border-l-4 border-red-500 text-white py-12 px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-2xl font-bold mb-4">🚨 Caso de Emergência nos Pés?</h3>
-      <p class="mb-6">Feridas abertas, sangramento, dor intensa ou sinais de infecção? Entre em contato imediatamente!</p>
+      <h3 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">🚨Emergência nos Pés? 🚨</h3>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        <strong>Feridas abertas, sangramento intenso, dor severa ou sinais de infecção?</strong><br>
+        Atendimento de urgência 24 horas disponível!
+      </p>
       <a href="https://wa.me/5514998771474?text=URGENTE%20-%20Vanessa!%20Estou%20com%20uma%20emergência%20nos%20pés%20e%20preciso%20de%20atendimento%20imediato!" 
-         class="bg-red-600 text-white px-8 py-4 font-bold rounded-lg shadow-lg hover:bg-red-700 transition">
-        🚨 EMERGÊNCIA - Contato Imediato
+         class="inline-block bg-white text-red-600 px-8 py-4 md:px-12 md:py-6 font-bold rounded-full shadow-2xl hover:scale-105 transition-all duration-300 text-lg md:text-xl">
+        Contato Imediato
       </a>
     </div>
   </section>
@@ -117,7 +247,7 @@
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <img src="src/imgs/vanessa-yano.webp" alt="Podóloga Vanessa Yano" class="rounded-lg shadow-lg">
         <div>
-          <h2 class="text-3xl font-bold gold mb-4">Sobre Vanessa Yano</h2>
+          <h2 class="text-3xl font-bold text-[#c0a062] mb-4">Sobre Vanessa Yano</h2>
           <p class="text-lg leading-relaxed mb-4">
             “Os pés contam histórias… e eu aprendi a escutá-las.”
           </p>
@@ -143,155 +273,240 @@
     </section>
 
 
-  <!-- Lista de Tratamentos com Cards -->
-    <section class="bg-white text-deep-green py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Tratamentos Oferecidos</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🩹 Bolhas nos Pés</h3>
-            <p class="mb-4">Alívio imediato e orientação para prevenção.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20problema%20de%20bolhas%20nos%20pés.%20Gostaria%20de%20agendar%20o%20tratamento!"
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Tratar Bolhas
-            </a>
+ <!-- Tratamentos -->
+  <section id="tratamentos" class="py-20 px-4 bg-white text-gray-800 section-fade">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-[#1e2d28]">Tratamentos <span class="text-[#c0a062]">Especializados</span></h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Soluções completas para todos os tipos de problemas nos pés</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="treatment-card card-3d bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🩹</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Bolhas nos Pés</h3>
+          <p class="text-gray-600 mb-6">Alívio imediato da dor e tratamento para cicatrização rápida, com orientações preventivas personalizadas.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20problema%20de%20bolhas%20nos%20pés.%20Gostaria%20de%20agendar%20o%20tratamento!"
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Tratar Agora
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🦶 Calos nos Pés e Dedos</h3>
-            <p class="mb-4">Remoção segura e tratamento da causa.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20ajuda%20com%20calos%20nos%20pés%20e%20dedos.%20Como%20funciona%20o%20tratamento?"
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Remover Calos
-            </a>
+        <div class="treatment-card card-3d bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🦶</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Calos e Calosidades</h3>
+          <p class="text-gray-600 mb-6">Remoção segura e indolor com identificação da causa raiz. Prevenção eficaz de recidivas.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20ajuda%20com%20calos%20nos%20pés%20e%20dedos.%20Como%20funciona%20o%20tratamento?"
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Eliminar Calos
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">❄️ Frieiras</h3>
-            <p class="mb-4">Controle da umidade e antifúngicos eficazes.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20frieiras%20e%20gostaria%20de%20saber%20sobre%20o%20tratamento%20disponível."
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+        <div class="treatment-card card-3d bg-gradient-to-br from-cyan-50 to-cyan-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">❄️</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Frieiras</h3>
+          <p class="text-gray-600 mb-6">Controle eficaz da umidade com antifúngicos de última geração e protocolos de higienização.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20frieiras%20e%20gostaria%20de%20saber%20sobre%20o%20tratamento%20disponível."
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
             Tratar Frieiras
-            </a>
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🍄 Fungos e Micoses</h3>
-            <p class="mb-4">Tratamento completo das unhas e planta dos pés.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20tratamento%20para%20fungos%20ou%20micoses%20nos%20pés.%20Qual%20o%20procedimento?"
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+        <div class="treatment-card card-3d bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🍄</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Fungos e Micoses</h3>
+          <p class="text-gray-600 mb-6">Tratamento avançado para unhas e pele com laser terapia e medicamentos específicos.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20tratamento%20para%20fungos%20ou%20micoses%20nos%20pés.%20Qual%20o%20procedimento?"
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
             Eliminar Fungos
-            </a>
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🩺 Podologia para Diabéticos</h3>
-            <p class="mb-4">Prevenção de feridas, necroses e amputações.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Sou%20diabético(a)%20e%20preciso%20de%20cuidados%20especiais%20com%20os%20pés.%20Como%20funciona%20o%20acompanhamento?"
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Cuidado Diabético
-            </a>
-        </div>
-
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">💅 Unha Encravada</h3>
-            <p class="mb-4">Correção indolor com técnicas modernas.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20unha%20encravada%20e%20preciso%20de%20tratamento."
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Corrigir Unha
-            </a>
-        </div>
-
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🎗️ Pés Oncológicos e de Risco</h3>
-            <p class="mb-4">Cuidado extremo, seguro e gentil.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20cuidados%20especiais%20para%20pés%20oncológicos."
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
+        <div class="treatment-card card-3d bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🩺</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Pés Diabéticos</h3>
+          <p class="text-gray-600 mb-6">Cuidado especializado para prevenção de úlceras, necroses e complicações graves.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Sou%20diabético(a)%20e%20preciso%20de%20cuidados%20especiais%20com%20os%20pés.%20Como%20funciona%20o%20acompanhamento?"
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
             Cuidado Especial
-            </a>
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">🔧 Órtese</h3>
-            <p class="mb-4">Correção da curvatura da unha com tecnologia.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20saber%20sobre%20o%20tratamento%20com%20órtese%20para%20correção%20das%20unhas."
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Órtese para Unhas
-            </a>
+        <div class="treatment-card card-3d bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">💅</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Unha Encravada</h3>
+          <p class="text-gray-600 mb-6">Correção definitiva com técnicas minimamente invasivas e sem dor. Resultados duradouros.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Estou%20com%20unha%20encravada%20e%20preciso%20de%20tratamento."
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Corrigir Unha
+          </a>
         </div>
 
-        <div class="treatment-card bg-gray-100 p-6 rounded-lg shadow flex flex-col h-full">
-            <div class="flex-1">
-            <h3 class="font-semibold text-lg mb-2">✨ Tratamentos a Laser</h3>
-            <p class="mb-4">Alta performance para fungos e cicatrização.</p>
-            </div>
-            <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Tenho%20interesse%20no%20tratamento%20a%20laser.%20Como%20funciona?"
-            class="whatsapp-btn text-white px-4 py-2 text-sm font-semibold rounded block text-center">
-            Laser Terapia
-            </a>
+        <div class="treatment-card card-3d bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🎗️</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Pés Oncológicos</h3>
+          <p class="text-gray-600 mb-6">Cuidado extremamente delicado e especializado para pacientes em tratamento oncológico.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Preciso%20de%20cuidados%20especiais%20para%20pés%20oncológicos."
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Cuidado Oncológico
+          </a>
         </div>
 
+        <div class="treatment-card card-3d bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">🔧</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Órtese para Unhas</h3>
+          <p class="text-gray-600 mb-6">Correção moderna da curvatura das unhas com tecnologia avançada e resultados visíveis.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20saber%20sobre%20o%20tratamento%20com%20órtese%20para%20correção%20das%20unhas."
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Órtese Especializada
+          </a>
         </div>
 
-        <!-- Botão central para dúvidas gerais -->
-        <div class="text-center mt-12">
-        <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Tenho%20dúvidas%20sobre%20os%20tratamentos%20de%20podologia.%20Poderia%20me%20orientar?"
-            class="whatsapp-btn text-white px-8 py-4 font-semibold rounded-lg shadow-lg text-lg">
-            ❓ Tenho Outras Dúvidas
-        </a>
+        <div class="treatment-card card-3d bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl shadow-xl">
+          <div class="text-5xl mb-4">✨</div>
+          <h3 class="font-bold text-xl mb-3 text-[#1e2d28]">Laser Terapia</h3>
+          <p class="text-gray-600 mb-6">Tratamento de alta performance com laser para fungos, cicatrização e regeneração celular.</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Tenho%20interesse%20no%20tratamento%20a%20laser.%20Como%20funciona?"
+            class="whatsapp-btn text-white px-6 py-3 font-semibold rounded-full block text-center">
+            Laser Premium
+          </a>
         </div>
+
+      </div>
+
+      <!-- Botão central premium -->
+      <div class="text-center mt-16">
+        <div class="bg-gradient-to-r from-[#c0a062] to-[#10b981] p-8 rounded-2xl shadow-2xl max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold text-white mb-4">Não encontrou seu problema?</h3>
+          <p class="text-white mb-6">Converse diretamente com a Vanessa para uma orientação personalizada</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Tenho%20dúvidas%20sobre%20os%20tratamentos%20de%20podologia.%20Poderia%20me%20orientar?"
+            class="bg-white text-[#1e2d28] px-8 py-4 font-bold rounded-full shadow-lg hover:scale-105 transition-all duration-300 inline-block">
+            💬 Orientação Personalizada
+          </a>
+        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-  <!-- CTA Final -->
- <section class="py-16 px-4 text-white text-center bg-gray-800">
-  <h3 class="text-3xl font-semibold mb-4">Agende sua avaliação com quem entende de pés</h3>
-  <p class="mb-6 max-w-xl mx-auto">Entre em contato agora mesmo pelo WhatsApp e garanta seu horário com a podóloga Vanessa Yano. Atendimento de excelência e com muito carinho!</p>
-  <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Quero%20agendar%20uma%20avaliação%20completa%20dos%20meus%20pés.%20Quais%20são%20os%20horários%20disponíveis?" 
-     class="bg-white text-deep-green px-8 py-4 font-semibold rounded-lg shadow-lg hover:scale-105 transition">
-    📱 Chamar no WhatsApp
-  </a>
-</section>
+  <!-- CTA Final Premium -->
+  <section id="contato" class="py-20 px-4 hero-gradient text-white section-fade">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="mb-12">
+        <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+          Não deixe problemas nos pés limitarem sua qualidade de vida.<br>
+          <strong class="text-[#c0a062]">Agende agora</strong> sua consulta com a especialista Vanessa Yano.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="glass-effect p-8 rounded-2xl">
+          <div class="text-5xl mb-4">📅</div>
+          <h3 class="text-2xl font-bold mb-4">Consulta Completa</h3>
+          <p class="text-gray-200 mb-6">Avaliação detalhada + Plano de tratamento personalizado</p>
+          <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Quero%20agendar%20uma%20consulta%20completa.%20Quais%20são%20os%20horários%20disponíveis?" 
+             class="whatsapp-btn text-white px-8 py-4 font-bold rounded-full block text-center">
+            Agendar Consulta
+          </a>
+        </div>
+        
+        <div class="glass-effect p-8 rounded-2xl">
+          <div class="text-5xl mb-4">🚨</div>
+          <h3 class="text-2xl font-bold mb-4">Atendimento Urgente</h3>
+          <p class="text-gray-200 mb-6">Para casos de emergência e dor intensa</p>
+          <a href="https://wa.me/5514998771474?text=URGENTE%20-%20Vanessa!%20Preciso%20de%20atendimento%20emergencial%20para%20meus%20pés!" 
+             class="bg-red-600 text-white px-8 py-4 font-bold rounded-full block text-center hover:bg-red-700 transition-colors">
+            Emergência 24h
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <p class="text-lg text-gray-300 mb-6">
+          📍 <strong>Horário:</strong> Segunda a Sexta, 9h às 18h<br>
+          📱 <strong>WhatsApp:</strong> (14) 99877-1474<br>
+          🚨 <strong>Emergências:</strong> Atendimento 24 horas
+        </p>
+      </div>
+    </div>
+  </section>
 
-
-  <!-- Botão WhatsApp Flutuante -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20saúde%20dos%20pés." 
-       class="whatsapp-btn text-white p-4 rounded-full shadow-2xl text-2xl animate-pulse">
-      💬
-    </a>
-  </div>
-
-  <!-- Footer completo -->
-  <footer class="bg-black text-white py-12 px-4 text-center">
-    <a href="/" class="inline-block text-center text-[#D5B26A]">
-      <h1 class="logo-font text-2xl tracking-wide">VANESSA YANO</h1>
-      <p class="logo-font text-base tracking-[0.1em] mt-1">PODOLOGIA</p>
-    </a>
-    <p class="mt-3 mb-5">Horário de Atendimento: Seg à Sex, 9h às 18h <br> 🚨 Atendimento de Urgências 24h 🚨</p>
-    <a href="https://wa.me/5514998771474" class="gold hover:text-white transition">
-      WhatsApp: (14) 99877-1474
-    </a>
-    <p class="mt-2">CNPJ: 21.228.199/0001-80 | CRM: 000000-SP</p>
-    <p class="mt-6">&copy; 2025 Vanessa Yano - Todos os direitos reservados</p>
+  <!-- Footer Premium -->
+  <footer class="bg-black text-white py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div class="text-center md:text-left">
+          <a href="/" class="inline-block text-center text-[#D5B26A] mb-4">
+            <h1 class="logo-font text-3xl tracking-wide font-bold">VANESSA YANO</h1>
+            <p class="logo-font text-lg tracking-[0.1em] mt-1">PODOLOGIA PREMIUM</p>
+          </a>
+          <p class="text-gray-400">Transformando vidas através dos pés desde 2016</p>
+        </div>
+        
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-4 text-[#c0a062]">Contato</h3>
+          <p class="text-gray-300 mb-2">📱 (14) 99877-1474</p>
+          <p class="text-gray-300 mb-2">⏰ Seg à Sex: 9h às 18h</p>
+          <p class="text-gray-300">🚨 Emergências: 24h</p>
+        </div>
+        
+        <div class="text-center md:text-right">
+          <h3 class="text-xl font-bold mb-4 text-[#c0a062]">Especialidades</h3>
+          <p class="text-gray-300 text-sm">Podologia Clínica • Pés Diabéticos<br>
+          Laser Terapia • Órteses • Urgências</p>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-400 mb-2">CNPJ: 21.228.199/0001-80 | Registro Profissional: CRM-000000-SP</p>
+        <p class="text-gray-500">&copy; 2025 Vanessa Yano Podologia Premium - Todos os direitos reservados</p>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Intersection Observer para animações
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas as seções
+    document.querySelectorAll('.section-fade').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-opacity-95');
+      } else {
+        navbar.classList.remove('bg-opacity-95');
+      }
+    });
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
