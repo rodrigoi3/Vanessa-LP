@@ -222,17 +222,21 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="fixed w-full z-50 flex items-center justify-between p-4 nav-blur shadow-2xl">
-    <a href="/" class="inline-block text-center text-[#D5B26A]">
-      <h1 class="logo-font text-2xl tracking-wide">VANESSA YANO</h1>
-      <p class="logo-font text-base tracking-[0.1em] mt-1">PODOLOGISTA</p>
+  <nav class="w-full z-50 flex flex-col sm:flex-row items-center sm:justify-between p-4 sm:fixed sm:top-0 nav-blur shadow-2xl">
+    <a href="/" class="text-center text-[#D5B26A]">
+      <h1 class="logo-font text-xl sm:text-2xl tracking-wide leading-tight">VANESSA YANO</h1>
+      <p class="logo-font text-sm sm:text-base tracking-[0.1em] mt-0.5 sm:mt-1">PODOLOGISTA</p>
     </a>
-
+  
+    <!-- Botão visível apenas em sm+ -->
     <a href="https://wa.me/5514998771474?text=Olá%20Vanessa!%20Gostaria%20de%20mais%20informações%20sobre%20seus%20serviços%20de%20podologia." 
-       class="whatsapp-btn text-white px-4 py-2 md:px-6 md:py-3 font-semibold rounded-full shadow-lg text-sm md:text-base" target="_blank" rel="noopener noreferrer">
+       class="hidden sm:inline-block whatsapp-btn text-white px-4 py-2 md:px-6 md:py-3 font-semibold rounded-full shadow-lg text-sm md:text-base"
+       target="_blank" rel="noopener noreferrer">
       💬 Falar no WhatsApp
     </a>
   </nav>
+
+
 
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center justify-center text-center px-4 hero-gradient overflow-hidden">
